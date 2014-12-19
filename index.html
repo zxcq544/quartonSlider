@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .sliders {
+            padding: 0 0 1px 0;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+            border: 0;
+        }
+
+        .sliders .big_photo {
+            width: 100%;
+            display: block;
+            background-color: #ffffff;
+            background: url('http://xn--80adxoelo.xn--p1ai/bitrix/templates/quarton/less/../img/big_photo_shadow.png') center bottom no-repeat;
+            padding: 0 0 4px 0;
+            overflow: hidden;
+        }
+
+        .sliders .big_photo img {
+            /*width: 0;*/
+            position: absolute;
+            z-index: 0;
+            display: inline-block;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        .current {
+            float: left;
+        }
+
+        .sliders .sliders_tab {
+            display: block;
+            list-style: none;
+            text-align: center;
+            padding-top: 21px;
+            height: 40px;
+            margin-left: 0;
+            margin-top: -20px;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+        .sliders .sliders_tab li:first-child {
+            border-left: 0;
+        }
+
+        .sliders .sliders_tab li {
+            display: inline-block;
+            text-align: center;
+            padding: 5px;
+            border-left: 1px solid #d2d2d2;
+            width: 110px;
+            height: 30px;
+            line-height: 16px;
+            position: relative;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<div class="widget-wrap sliders" style="display:block;">
+    <a class="big_photo" href="#" title="Продадим дешевле конкурентов">
+        <img class="current" src="1e87f2afb72774346ee8bd0db57e3dad.jpg">
+        <img class="next" style="display: none" src="25c5ce6707877b47e8df32a4cd1f259b.jpg">
+
+    </a>
+    <ul class="sliders_tab">
+        <li><a data-id="0" href="#remont/" title="" class="active first" alt="1e87f2afb72774346ee8bd0db57e3dad.jpg">Ремонт</a>
+        </li>
+        <li><a data-id="1" href="#za-tseny-otvetim2014/" title="Продадим дешевле конкурентов"
+               alt="25c5ce6707877b47e8df32a4cd1f259b.jpg">За цены ответим</a></li>
+        <li><a data-id="2" href="#utsenka-bez-natsenki2014/" title="Большие скидки за незначительный дефект."
+               alt="f09bdda33a5e5a511b164caf92a293c0.jpg">Уценка без наценки</a></li>
+        <li>
+            <a data-id="3"
+               href="#kupite-v-kvartone-monitory-samsung-diagonalyu-ot-23-i-poluchite-priglasitelnyy-bilet-v-kino-v-podarok-/"
+               title="" alt="dd48ed8a92aba108ba35bac42caede0e.jpg">Купите в Квартоне мониторы Samsung
+                диагональю от 23" и получите пригласительный билет в кино в подарок!*</a></li>
+        <li>
+            <a data-id="4"
+               href="#za-pokupku-stilnykh-moshchnykh-i-funktsionalnykh-noutbukov-asus-poluchite-v-podarok-sertifikat/"
+               title="" alt="7db1f1a98dc08e6d15c7af6171dbae16.jpg">За покупку стильных, мощных и
+                функциональных ноутбуков ASUS получите в подарок сертификат.</a></li>
+        <li>
+            <a data-id="5"
+               href="#pri-pokupke-pk-v-sborke-s-videokartoy-msi-igrovoy-kovrik-v-podarok-s-videokartoy-i-materinskoy-platoy-msi-igrovoy-kovrik-i-mysh-v-podarok/"
+               title="" alt="c2c04dc0e2d5d6c0526217599657d9f3.jpg">При покупке ПК в сборке с
+                видеокартой MSI - игровой коврик в подарок, с видеокартой и материнской платой MSI - игровой коврик и
+                мышь в подарок.</a></li>
+        <li><a data-id="6" href="#poluchite-igrovuyu-mysh-v-podarok/" title="Получите игровую мышь в подарок"
+               alt="920b6d30b8838f51085a4a4b834b99ae.jpg">За покупку интернет-планшета Ritmix -
+            наушники в подарок</a></li>
+        <div class="test"></div>
+    </ul>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    $('.big_photo').css("width", $('.current').innerWidth());
+    $('.big_photo').css("height", $('.current').innerHeight());
+    var fadeInterval = 2000;
+    //    var myInterval;
+    //    $(document).ready(function () {
+    ////        myInterval = setInterval(changeSlide, 3000);
+    //    });
+    //    var globalCurrentImg;
+    //    var globalNextImg;
+    //    var globalFirstElement = $('.first');
+    //    var currentIndex = 0;
+    //    function changeSlide() {
+    //        changesource();
+    //        fadeout();
+    //        fadein();
+    //    }
+    //    function fadeout() {
+    //        $('.current').fadeTo(fadeInterval, 0, function () {
+    //        });
+    //    }
+    //
+    //    var nextImg;
+    //
+    //    function changesource() {
+    //        var nextElement;
+    //        var currentElement = $('.active');
+    //        currentElement[0].className = "";
+    ////        $('.current').attr('src', nextImg);
+    //        var size = $('.sliders_tab li').length;
+    //        if (currentIndex == ( size - 1)) {
+    //            nextElement = globalFirstElement;
+    //            nextElement[0].className += "first ";
+    //            currentIndex = 0;
+    //        }
+    //        else {
+    //            nextElement = currentElement.parent().next().find('a');
+    //            currentIndex++;
+    //        }
+    //        nextElement[0].className += "active";
+    //        nextImg = nextElement.attr('alt');
+    //        globalNextImg = nextImg;
+    //        $('.next').attr('src', nextImg);
+    //    }
+    //
+    //    function fadein() {
+    //        $('.next').fadeTo(fadeInterval, 1, function () {
+    //            $('.current').attr('src', nextImg);
+    //            $('.current').css('opacity', "1");
+    //            $('.next').css('opacity', "0");
+    //
+    //        });
+    //    }
+    //
+    var linksToSlide = document.getElementsByClassName("sliders_tab")[0].getElementsByTagName("a");
+    for (var i = 0; i < (linksToSlide.length - 1); ++i) {
+        linksToSlide[i].addEventListener("click", function (ev) {
+            changeSlidesOnClick();
+        })
+
+    }
+    var countElement = 0;
+    function changeSlidesOnClick() {
+        var elementToBecomeActive;
+        var elementToBecomeNext;
+
+        $('.current').fadeTo(fadeInterval, 0, function () {
+
+        });
+
+        $('.next').fadeTo(fadeInterval, 1, function () {
+//SET NEW IMAGE SRC ON CURRENT
+            $('.current').attr('src', $('.next').attr('src'));
+            $('.current').css('opacity', 1);
+            if (countElement == ($('.sliders_tab li').length - 1)) {
+                elementToBecomeNext = $('.sliders_tab a').first();
+                elementToBecomeActive = elementToBecomeNext;
+//            alert(elementToBecomeNext[0].innerHTML);
+                countElement = 0;
+            }
+            else {
+                elementToBecomeNext = $('.active').parent().next().next().find('a');
+                elementToBecomeActive = $('.active').parent().next().find('a');
+                countElement++;
+            }
+//        elementToBecomeNext = $('.active').parent().next().next().find('a');
+
+            $('.active')[0].className = "";
+            elementToBecomeActive[0].className = "active";
+            //SET NEW IMG SOURCE ON NEXT
+            $('.next').attr('src', elementToBecomeNext.attr('alt'));
+            $('.next').css('opacity', 0);
+
+        });
+
+    }
+
+
+</script>
+
+</body>
+</html>
